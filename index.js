@@ -1,5 +1,5 @@
 (function (){
-    const customerImgage = document.querySelector("#customerimg")
+    const customerImage = document.querySelector("#customerimg")
     const customerName = document.querySelector("#customer-name")
     const  customerText = document.querySelector("#customer-id")
     const btn = document.querySelectorAll('.btn')
@@ -13,8 +13,8 @@ function Customer (img,name,text){
     this.text = text
 }
 function createCustomer(img,name,text){
-    let Img = `./image/${Image}.jpg`
-    let customer = new customer(img,name,text)
+    let Img = `./img/${img}.jpg`
+    let customer = new Customer(Img, name, text)
 
     customers.push(customer)
 }
@@ -28,14 +28,13 @@ createCustomer(3,'prasad','My name is abhishek My name is abhishek name is abhis
 
 
 btn.forEach(function(button){
-    button.addEventListener(
-    'click',function(e){
+    button.addEventListener('click',function(e){
         if(e.target.parentElement.classList.contains('prevbtn')){
-            if(index ===0){
+            if(index === 0){
                 index = customers.length
             }
             index--
-            customerImgage.src = customers[index].img
+            customerImage.src = customers[index].img
             customerName.textContent = customers[index].name
             customerText.textContent = customers[index].text
         }
@@ -44,16 +43,12 @@ btn.forEach(function(button){
             if(index === customers.length){
                 index = 0
             }
-            index--
-            customerImgage.src = customers[index].img
+           
+            customerImage.src = customers[index].img
             customerName.textContent = customers[index].name
             customerText.textContent = customers[index].text
         }
-    }
-    )
+    })
 })
-
-
-
-
 })()
+
